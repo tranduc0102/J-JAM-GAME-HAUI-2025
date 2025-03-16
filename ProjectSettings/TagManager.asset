@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - DropArea
+  - AutoSwap
+  - Map
+  - Ground
+  - Losse
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Map
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - MaxLayer
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 267546617
+    locked: 0
+  - name: Decoration
+    uniqueID: 550129763
+    locked: 0
+  - name: Map
+    uniqueID: 2844232641
+    locked: 0
+  - name: Player
+    uniqueID: 3177895227
+    locked: 0
+  - name: TOPLayer
+    uniqueID: 1223385897
+    locked: 0
