@@ -70,6 +70,7 @@ namespace _Scripts.UI
         }
         public void DisplaySetting(bool enable, Action onClosed = null)
         {
+            if(GameController.Instance.State == StateGame.ShowTutorial)return;
             if (enable)
             {
                 dime.gameObject.SetActive(true);

@@ -22,6 +22,8 @@ public class ButtonLevel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Button button;
 
     [SerializeField] private int level;
+    [SerializeField] private int amountStar;
+    public int AmountStar => amountStar;
     public bool Lock = true;
 
     public bool IsLock
@@ -29,16 +31,18 @@ public class ButtonLevel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         set
         {
             PlayerPrefs.SetInt("Level_" + level, value ? 1 : 0);
-            if (value)
-            {
-                ImageLock.SetActive(false);
-            }
         }
         get => PlayerPrefs.GetInt("Level_" + level, 0) == 1;
     }
 
     public GameObject ImageLock;
+
     private void Start()
+    {
+        button.onClick.AddListener(StartLevel);
+    }
+
+    private void OnEnable()
     {
         if (!Lock)
         {
@@ -50,7 +54,6 @@ public class ButtonLevel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             ImageLock.SetActive(false);
         }
-        button.onClick.AddListener(StartLevel);
     }
 
     private void StartLevel()

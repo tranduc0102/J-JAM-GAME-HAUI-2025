@@ -14816,6 +14816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5250084637936704300}
+  - component: {fileID: 4989677092437319567}
   m_Layer: 8
   m_Name: Root
   m_TagString: Untagged
@@ -14839,6 +14840,18 @@ Transform:
   - {fileID: 4674070079671183477}
   m_Father: {fileID: 4223431636154534813}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!210 &4989677092437319567
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558784496288896801}
+  m_Enabled: 1
+  m_SortingLayerID: -1117072069
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &2561705655932510757
 GameObject:
   m_ObjectHideFlags: 0
@@ -63602,7 +63615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 658576835441620870}
-  boneReference: {fileID: 5250084637936704300}
+  boneReference: {fileID: 2770686858885856287, guid: 5d0c7ae800e7fa648a25bdf1c01c1dfd, type: 3}
 --- !u!1 &7813009032437000286
 GameObject:
   m_ObjectHideFlags: 0

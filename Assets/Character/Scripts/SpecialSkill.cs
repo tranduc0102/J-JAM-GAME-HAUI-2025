@@ -30,7 +30,7 @@ namespace Character
             checkPointPos = transform.position;
             isSettingPoint = true;
             objCheckpoint =
-                PoolingManager.Spawn(boneReference, player.position, Quaternion.identity);
+                PoolingManager.Spawn(boneReference, player.position + Vector3.up * 0.4f, Quaternion.identity);
             canBackCheckPoint = true;
         }
 

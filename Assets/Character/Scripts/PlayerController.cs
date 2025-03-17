@@ -104,8 +104,8 @@ namespace Character
 
         private void VerifyStableLanding()
         {
-            RaycastHit2D[] hit2D = Physics2D.RaycastAll(transform.position, Vector2.down, 0.5f);
-            if (hit2D.Length >= 4)
+            RaycastHit2D[] hit2D = Physics2D.RaycastAll(transform.position, Vector2.down, 0.1f);
+            if (hit2D.Length >= 3)
             {
                 ToggleMovementState(false);
                 isCheckMovePlay = true;
@@ -150,6 +150,12 @@ namespace Character
                 {
                     GameController.Instance.Replay();
                 });
+            }
+
+            if (other.CompareTag("Respawn"))
+            {
+                other.gameObject.SetActive(false);
+                GameController.Instance.CheckCurrentStar();
             }
         }
     }

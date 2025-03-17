@@ -21,6 +21,7 @@ public class GameController : Singleton<GameController>
    }
 
    [SerializeField] private SpawnLevel spawnLevel;
+   private int amoutStar;
    private int level;
    public SpawnLevel SpawnLevel => spawnLevel;
 
@@ -39,11 +40,6 @@ public class GameController : Singleton<GameController>
          state = StateGame.ShowTutorial;
          return;
       }
-      AudioManager.Instance.StopMusic();
-      DOVirtual.DelayedCall(0.2f, delegate
-      {
-         AudioManager.Instance.PlayMusicBG();
-      });
       state = StateGame.WaitingChoiceLevel;
    }
    public void PlayGame(int indexLevel)
@@ -53,6 +49,16 @@ public class GameController : Singleton<GameController>
          level = indexLevel;
          AnimationTranslate.Instance.DisplayLoading(false);
          spawnLevel.SpawmLevel(indexLevel - 1);
+         if (level == 5)
+         {
+            _Scripts.UI.UIController.Instance.Message.ShowMessageNoticeSkill();
+         }
+
+         amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
+         if (amoutStar > 0)
+         {
+            FindTeleport(true);
+         }
          state = StateGame.Playing;
          _Scripts.UI.UIController.Instance.UIInGame.ShowDisPlayGame();
       });
@@ -98,6 +104,15 @@ public class GameController : Singleton<GameController>
          {
             /*UIController.Instance.UIInGame.ShowDisplayHome();*/
             spawnLevel.SpawmLevel(level - 1);
+            if (level == 5)
+            {
+               _Scripts.UI.UIController.Instance.Message.ShowMessageNoticeSkill();
+            }
+            amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
+            if (amoutStar > 0)
+            {
+               FindTeleport(true);
+            }
             AnimationTranslate.Instance.DisplayLoading(false);
             state = StateGame.Playing;
          });
@@ -106,6 +121,10 @@ public class GameController : Singleton<GameController>
 
    public void Replay()
    {
+      if (state == StateGame.Win)
+      {
+         level -= 1;
+      }
       AudioManager.Instance.PlaySoundButtonClick();
       _Scripts.UI.UIController.Instance.UIWin.DisplayWin(false, delegate
       {
@@ -113,6 +132,8 @@ public class GameController : Singleton<GameController>
          {
             AnimationTranslate.Instance.DisplayLoading(false);
             spawnLevel.SpawmLevel(level - 1);
+            FindTeleport(true);
+            amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
          });
       });
       
@@ -128,7 +149,30 @@ public class GameController : Singleton<GameController>
          _Scripts.UI.UIController.Instance.UIWin.DisplayWin(true);
          level += 1;
          MapLevelManager.Instance.ListBtn[level - 1].IsLock = true;
+         amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
       });
+   }
+
+   public void CheckCurrentStar()
+   {
+      amoutStar -= 1;
+      if (amoutStar <= 0)
+      {
+         if (telePort)
+         {
+            telePort.SetActive(true);
+         }
+      }
+   }
+
+   private GameObject telePort;
+   private void FindTeleport(bool enable)
+   {
+      telePort = GameObject.FindGameObjectWithTag("Finish");
+      if (telePort)
+      {
+         telePort.SetActive(!enable);
+      }
    }
    
 }

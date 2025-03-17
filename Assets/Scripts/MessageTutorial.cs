@@ -55,6 +55,7 @@ public class MessageTutorial : MonoBehaviour
     public bool useVietNamese;
 
     private string[] currentMessage;
+    private Action actionDone;
     private void Start()
     {
         popupCanvasGroup.alpha = 0;
@@ -66,6 +67,11 @@ public class MessageTutorial : MonoBehaviour
         else
         {
             currentMessage = messagesEnglish;
+        }
+
+        if (GameController.Instance.IsFirstPlay)
+        {
+            actionDone = ActionDoneTutorial;
         }
     }
 
@@ -80,15 +86,14 @@ public class MessageTutorial : MonoBehaviour
     }
     private void Update()
     {
-        if (!GameController.Instance.IsFirstPlay || !CanShow) return;
-
-        if (Input.GetMouseButtonDown(0) && indexMessage < 4)
-        {
-            NextMessage();
-        }
+        if (!CanShow) return;
         if (Input.GetMouseButtonDown(0) && !canProceed)
         {
             CompleteTyping();
+        }
+        if (Input.GetMouseButtonDown(0) && indexMessage < 4)
+        {
+            NextMessage();
         }
         if (indexMessage >= 4)
         {
@@ -172,8 +177,7 @@ public class MessageTutorial : MonoBehaviour
                 objAvt.SetActive(false);
             }).OnComplete(delegate
             {
-                GameController.Instance.IsFirstPlay = false;
-                GameController.Instance.State = StateGame.Playing;
+               actionDone?.Invoke();
             });
             popupTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
         }
@@ -198,5 +202,35 @@ public class MessageTutorial : MonoBehaviour
             default:
                 return false;
         }
+    }
+
+    public bool FirstShowNoticeSkill
+    {
+        get => PlayerPrefs.GetInt("FirstShowNotice", 1) == 1;
+        set => PlayerPrefs.SetInt("FirstShowNotice", value ? 1 : 0);
+    }
+    public void ShowMessageNoticeSkill()
+    {
+        if(!FirstShowNoticeSkill) return;
+        indexMessage = 0;
+        currentMessage = new[]
+        {
+            "Bạn có thể bấm phím X để lưa vị trí đang đứng, sau đó ấn phím X bạn sẽ được trở lại vị trí này."
+        };
+        CanShow = true;
+        GameController.Instance.State = StateGame.ShowTutorial;
+        ShowMessage();
+        actionDone = () => { 
+            FirstShowNoticeSkill = false;
+            CanShow = false;
+            GameController.Instance.State = StateGame.Playing;
+        };
+    }
+
+    private void ActionDoneTutorial()
+    {
+        GameController.Instance.IsFirstPlay = false;
+        CanShow = false;
+        GameController.Instance.State = StateGame.Playing;
     }
 }
