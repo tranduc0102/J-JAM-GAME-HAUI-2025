@@ -49,15 +49,10 @@ public class GameController : Singleton<GameController>
          level = indexLevel;
          AnimationTranslate.Instance.DisplayLoading(false);
          spawnLevel.SpawmLevel(indexLevel - 1);
-         if (level == 5)
-         {
-            _Scripts.UI.UIController.Instance.Message.ShowMessageNoticeSkill();
-         }
-
          amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
          if (amoutStar > 0)
          {
-            FindTeleport(true);
+            FindTeleport();
          }
          state = StateGame.Playing;
          _Scripts.UI.UIController.Instance.UIInGame.ShowDisPlayGame();
@@ -70,6 +65,10 @@ public class GameController : Singleton<GameController>
          {
             state = StateGame.ShowTutorial;
             _Scripts.UI.UIController.Instance.Message.ShowDisplayDialog();
+         }
+         if (level == 5)
+         {
+            _Scripts.UI.UIController.Instance.Message.ShowMessageNoticeSkill();
          }
       });
    }
@@ -106,12 +105,15 @@ public class GameController : Singleton<GameController>
             spawnLevel.SpawmLevel(level - 1);
             if (level == 5)
             {
-               _Scripts.UI.UIController.Instance.Message.ShowMessageNoticeSkill();
+               DOVirtual.DelayedCall(2f, delegate
+               {
+                  _Scripts.UI.UIController.Instance.Message.ShowMessageNoticeSkill();
+               });
             }
             amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
             if (amoutStar > 0)
             {
-               FindTeleport(true);
+               FindTeleport();
             }
             AnimationTranslate.Instance.DisplayLoading(false);
             state = StateGame.Playing;
@@ -124,6 +126,7 @@ public class GameController : Singleton<GameController>
       if (state == StateGame.Win)
       {
          level -= 1;
+         state = StateGame.Playing;
       }
       AudioManager.Instance.PlaySoundButtonClick();
       _Scripts.UI.UIController.Instance.UIWin.DisplayWin(false, delegate
@@ -132,8 +135,11 @@ public class GameController : Singleton<GameController>
          {
             AnimationTranslate.Instance.DisplayLoading(false);
             spawnLevel.SpawmLevel(level - 1);
-            FindTeleport(true);
             amoutStar = MapLevelManager.Instance.ListBtn[level - 1].AmountStar;
+            if (amoutStar > 0)
+            {
+               FindTeleport();
+            }
          });
       });
       
@@ -166,13 +172,18 @@ public class GameController : Singleton<GameController>
    }
 
    private GameObject telePort;
-   private void FindTeleport(bool enable)
+   private void FindTeleport()
    {
-      telePort = GameObject.FindGameObjectWithTag("Finish");
-      if (telePort)
+      telePort = null;
+      DOVirtual.DelayedCall(0.2f, delegate
       {
-         telePort.SetActive(!enable);
-      }
+         telePort = GameObject.FindGameObjectWithTag("Finish");
+         if (telePort)
+         {
+            telePort.SetActive(false);
+            Debug.LogError("OK");
+         }
+      });
    }
    
 }

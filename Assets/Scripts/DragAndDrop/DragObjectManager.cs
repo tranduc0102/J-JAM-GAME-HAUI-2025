@@ -86,7 +86,7 @@ public class DragObjectManager : MonoBehaviour
         if(!isDraggable) return;
         if (!currentItem) return;
         transform.SetParent(transform.root);
-        Vector3 pos = Camera.main.ScreenToWorldPoint(position);
+        Vector3 pos = currentItem.transform.position;
         if (isDraggable)
         {
             if (!smartDrag)
@@ -134,7 +134,16 @@ public class DragObjectManager : MonoBehaviour
 
     public void OnEndDrag(Vector3 position)
     {
-        ActionEndDrag(position);
+        Vector3 currentPos;
+        if (currentItem)
+        {
+            currentPos = currentItem.transform.position;
+        }
+        else
+        {
+            currentPos = position;
+        }
+        ActionEndDrag(currentPos);
     }
 
     public void OnPointerUp(Vector3 position)
