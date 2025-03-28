@@ -1990,7 +1990,7 @@ MonoBehaviour:
   hoverTransition: 0.15
   button: {fileID: 287348078}
   level: 4
-  amountStar: 0
+  amountStar: 1
   Lock: 1
   ImageLock: {fileID: 102989115}
 --- !u!114 &287348078
@@ -2982,7 +2982,7 @@ MonoBehaviour:
   hoverPunchAngle: 5
   hoverTransition: 0.15
   button: {fileID: 496790265}
-  level: 2
+  level: 3
   amountStar: 0
   Lock: 1
   ImageLock: {fileID: 67078604}
