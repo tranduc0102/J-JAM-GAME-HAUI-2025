@@ -11,6 +11,7 @@ namespace _Scripts.UI
     {
         [SerializeField] private UIAppear dime;
         [SerializeField] private UIAppear popup;
+        [SerializeField] private Button replay;
 
         public bool IsMuteMusic
         {
@@ -120,6 +121,15 @@ namespace _Scripts.UI
         {
             AudioManager.Instance.PlaySoundButtonClick();
             DisplaySetting(true);
+            if (GameController.Instance.State == StateGame.Playing)
+            {
+                replay.gameObject.SetActive(true);
+            }
+            else
+            {
+                replay.gameObject.SetActive(false);
+            } 
+                
         }
 
         public void OnButtonCloseClick()
