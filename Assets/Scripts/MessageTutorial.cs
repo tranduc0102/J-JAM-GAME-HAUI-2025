@@ -69,10 +69,8 @@ public class MessageTutorial : MonoBehaviour
             currentMessage = messagesEnglish;
         }
 
-        if (GameController.Instance.IsFirstPlay)
-        {
-            actionDone = ActionDoneTutorial;
-        }
+        actionDone = ActionDoneTutorial;
+
     }
 
     public void ShowDisplayDialog()
@@ -87,17 +85,22 @@ public class MessageTutorial : MonoBehaviour
     private void Update()
     {
         if (!CanShow) return;
-        if (Input.GetMouseButtonDown(0) && !canProceed)
+        if (Input.GetMouseButtonDown(0))
         {
-            CompleteTyping();
-        }
-        if (Input.GetMouseButtonDown(0) && indexMessage < 4)
-        {
-            NextMessage();
+            if (isTyping)
+            {
+                CompleteTyping();
+                return;
+            }
+            if(indexMessage < 4)
+            {
+                NextMessage();
+                return;
+            }
         }
         if (indexMessage >= 4)
         {
-            if (CheckConditionForStep(indexMessage))
+            if (CheckConditionForStep(indexMessage) && !isTyping)
             {
                 switch (indexMessage)
                 {
@@ -160,7 +163,6 @@ public class MessageTutorial : MonoBehaviour
             audioSource.Stop();
             StopCoroutine(typingCoroutine);
         }
-
         txtMessage.text = currentMessage[indexMessage];
         isTyping = false;
         canProceed = true;

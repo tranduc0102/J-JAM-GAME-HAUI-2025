@@ -61,7 +61,7 @@ public class GameController : Singleton<GameController>
       DOVirtual.DelayedCall(2f, delegate
       {
          AudioManager.Instance.PlayInGameMusic();
-         if (IsFirstPlay)
+         if (level == 1)
          {
             state = StateGame.ShowTutorial;
             _Scripts.UI.UIController.Instance.Message.ShowDisplayDialog();

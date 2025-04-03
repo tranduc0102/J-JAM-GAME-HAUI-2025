@@ -6,21 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6e8fa25c-9edf-449e-bd1e-b902b05ff26b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HIT-LETHIMCODE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HIT-LETHIMCODE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Animations/AnimUI/UIPlayer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Animations/AnimUI/UIPlayer.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Animations/PlayerAnims/Companion_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Animations/PlayerAnims/Companion_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Animations/PlayerAnims/Walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Animations/PlayerAnims/Walk.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Shaders/ToonyShader/GradModels_Toony.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Shaders/ToonyShader/GradModels_Toony.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extensions/_Scripts/UI/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/_Scripts/UI/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extensions/_Scripts/UI/UISetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/_Scripts/UI/UISetting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GamePlay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GamePlay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Loader.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Loader.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIWin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIWin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MessageTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MessageTutorial.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +129,7 @@
       <workItem from="1743054693996" duration="2942000" />
       <workItem from="1743503167308" duration="4604000" />
       <workItem from="1743658570607" duration="2097000" />
+      <workItem from="1743668643886" duration="1425000" />
     </task>
     <servers />
   </component>
