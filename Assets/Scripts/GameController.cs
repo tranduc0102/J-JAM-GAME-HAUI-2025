@@ -181,7 +181,6 @@ public class GameController : Singleton<GameController>
          if (telePort)
          {
             telePort.SetActive(false);
-            Debug.LogError("OK");
          }
       });
    }

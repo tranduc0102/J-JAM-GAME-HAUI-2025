@@ -68,9 +68,8 @@ namespace _Scripts
             musicSource.mute = false;
         }
 
-        public void SetVolume(float volume)
+        public void SetVolumeSoundSource(float volume)
         {
-            musicSource.volume = volume;
             soundSource.volume = volume;
         }
 
@@ -135,6 +134,11 @@ namespace _Scripts
                     musicSource.Stop();
                 }).SetUpdate(true);
             }
+        }
+
+        public void SetVolumeMusicSource(float value)
+        {
+            musicSource.volume = value;
         }
 
         public void StopSound()

@@ -104,12 +104,12 @@ namespace Character
 
         private void VerifyStableLanding()
         {
-            RaycastHit2D[] hit2D = Physics2D.RaycastAll(transform.position, Vector2.down, 0.1f);
+            /*RaycastHit2D[] hit2D = Physics2D.RaycastAll(transform.position, Vector2.down, 0.1f);
             if (hit2D.Length >= 3)
             {
                 ToggleMovementState(false);
                 isCheckMovePlay = true;
-            }
+            }*/
         }
 
         private bool isFalling;
